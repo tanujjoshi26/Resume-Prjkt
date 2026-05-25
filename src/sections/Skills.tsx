@@ -1,57 +1,56 @@
 import Container from "@/components/Container";
-import SectionHeading from "@/components/SectionHeading";
+import ScrollReveal from "@/components/ScrollReveal";
 
-const skills = [
-  "AWS",
-  "Docker",
-  "Kubernetes",
-  "Linux",
-  "GitHub Actions",
-  "Terraform",
-  "NGINX",
-  "CI/CD",
-  "Next.js",
-  "TypeScript",
-  "Tailwind CSS",
-  "Node.js",
+const skillCategories = [
+  {
+    category: "Cloud & Infrastructure",
+    skills: ["AWS", "Terraform", "NGINX", "Linux"],
+  },
+  {
+    category: "DevOps & Automation",
+    skills: ["Docker", "Kubernetes", "GitHub Actions", "CI/CD"],
+  },
+  {
+    category: "Development",
+    skills: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js"],
+  },
 ];
 
 export default function Skills() {
   return (
-    <section className="py-32 border-t border-white/10">
+    <section id="skills" className="py-24 sm:py-32">
       <Container>
+        <ScrollReveal>
+          {/* Section label */}
+          <div className="flex items-center gap-3 mb-12">
+            <span className="text-xs font-mono text-gray-600 uppercase tracking-wider">
+              // Technical Arsenal
+            </span>
+            <div className="h-px flex-1 bg-white/[0.06]" />
+          </div>
+        </ScrollReveal>
 
-        <SectionHeading
-          eyebrow="Skills"
-          title="Technologies and tools I use to build scalable systems."
-        />
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-
-          {skills.map((skill) => (
-            <div
-              key={skill}
-              className="
-              rounded-2xl
-              border border-white/10
-              bg-white/5
-              backdrop-blur-md
-              px-6 py-8
-              text-center
-              hover:border-blue-500/40
-              hover:bg-white/10
-              transition-all duration-300
-              hover:-translate-y-2
-              "
-            >
-              <p className="font-medium">
-                {skill}
-              </p>
-            </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((group) => (
+            <ScrollReveal key={group.category}>
+              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-7 h-full">
+                <h3 className="text-[11px] font-mono text-gray-500 uppercase tracking-wider mb-5">
+                  {group.category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1.5 text-sm text-gray-300 rounded-lg border border-white/[0.06] bg-white/[0.03] hover:border-blue-500/30 hover:text-white hover:bg-blue-500/[0.05] transition-all duration-300 cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
           ))}
-
         </div>
-
       </Container>
     </section>
   );
