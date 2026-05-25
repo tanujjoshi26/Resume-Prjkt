@@ -7,20 +7,16 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
-      - name: Deploy to Raspberry Pi
-        uses: appleboy/ssh-action@master
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-
-          script: |
-            cd ~/portfolio-site
-            git pull origin main
-            npm install
-            npm run build
-            pm2 restart portfolio
+      - name: Go to project
+        run: |
+          cd ~/portfolio-site
+          git pull origin main
+          npm install
+          npm run build
+          pm2 restart portfolio
