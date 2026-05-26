@@ -49,7 +49,7 @@ const contactLinks = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 sm:py-32">
+    <section id="contact" className="py-16 sm:py-20">
       <Container>
         <ScrollReveal>
           {/* Section label */}

@@ -3,7 +3,7 @@ import Button from "@/components/Button";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-16">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-8">
       <Container>
         <div className="relative z-10 max-w-5xl">
           {/* Status badge */}
