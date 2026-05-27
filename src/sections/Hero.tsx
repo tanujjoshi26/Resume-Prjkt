@@ -6,14 +6,6 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-8">
       <Container>
         <div className="relative z-10 max-w-5xl">
-          {/* Status badge */}
-          <div className="animate-fade-in-up delay-1 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-green-500/20 bg-green-500/[0.05] mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-status-pulse" />
-            <span className="text-xs text-green-400 font-medium uppercase tracking-wider">
-              Available for work
-            </span>
-          </div>
-
           {/* Name - large editorial style */}
           <h1 className="animate-fade-in-up delay-2 text-[clamp(3rem,8vw,7rem)] font-bold leading-[0.9] tracking-tighter mb-6">
             <span className="text-white">TANUJ</span>
