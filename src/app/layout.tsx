@@ -14,11 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="antialiased">
-      <body
-        className={GeistSans.className}
-        style={{ backgroundColor: "#050505", color: "#ededed" }}
-      >
+    <html lang="en" className="antialiased" suppressHydrationWarning>
+      <body className={GeistSans.className} suppressHydrationWarning>
         {children}
       </body>
     </html>

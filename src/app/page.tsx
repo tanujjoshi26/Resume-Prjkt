@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import AuroraBackground from "@/components/AuroraBackground";
 import Hero from "@/sections/Hero";
 import About from "@/sections/About";
 import Skills from "@/sections/Skills";
@@ -8,14 +9,11 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative">
-      {/* Ambient background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-600/[0.05] rounded-full blur-[120px] animate-pulse-glow" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-purple-600/[0.05] rounded-full blur-[120px] animate-pulse-glow" />
-      </div>
+    <>
+      {/* Aurora stays fixed behind everything */}
+      <AuroraBackground />
 
-      <div className="relative z-10">
+      <div className="relative" style={{ zIndex: 1 }}>
         <Navbar />
         <Hero />
         <About />
@@ -24,6 +22,6 @@ export default function Home() {
         <Contact />
         <Footer />
       </div>
-    </main>
+    </>
   );
 }
