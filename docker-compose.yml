@@ -1,0 +1,9 @@
+services:
+  portfolio:
+    image: portfolio:v2
+    container_name: portfolio
+
+    restart: unless-stopped
+
+    ports:
+      - "3000:3000"
