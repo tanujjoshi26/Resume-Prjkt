@@ -12,6 +12,7 @@ jobs:
       - name: Go to project
         run: |
           cd ~/portfolio-site
-          git pull origin main
+          git fetch origin
+          git reset --hard origin/main
           docker compose down
           docker compose up -d
