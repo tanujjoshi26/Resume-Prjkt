@@ -1,6 +1,6 @@
 services:
   portfolio:
-    image: portfolio:v2
+    build: .
     container_name: portfolio
 
     restart: unless-stopped
