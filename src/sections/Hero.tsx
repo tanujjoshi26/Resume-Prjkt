@@ -1,10 +1,12 @@
 import Container from "@/components/Container";
 import TypingWord from "@/components/TypingWord";
+import SplineScene from "@/components/SplineScene";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
-      {/* Sidebar social strip — like the reference */}
+
+      {/* Sidebar social strip */}
       <div className="fixed left-5 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-4 z-40">
         <a href="https://github.com/tanujjoshi26" target="_blank" rel="noopener noreferrer"
           className="text-gray-700 hover:text-white transition-colors duration-300">
@@ -27,65 +29,77 @@ export default function Hero() {
           </svg>
         </a>
         <div className="w-px h-12 bg-white/[0.08]" />
-        <span className="text-[9px] text-gray-700 font-mono tracking-widest uppercase" style={{ writingMode: "vertical-rl" }}>
+        <span className="text-[9px] text-gray-700 font-mono tracking-widest uppercase"
+          style={{ writingMode: "vertical-rl" }}>
           @tanujjoshi26
         </span>
       </div>
 
       <Container>
-        <div className="relative z-10 max-w-5xl py-10 sm:py-16">
+        {/* Two-column layout on large screens */}
+        <div className="relative z-10 flex flex-col lg:grid lg:grid-cols-2 gap-0 items-start py-10 sm:py-16">
 
-          {/* Small label */}
-          <div className="reveal-up d1 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#bef264]" />
-            <span className="text-[11px] text-gray-400 font-mono tracking-wider">
-              hi, I&apos;m tanuj —
-            </span>
+          {/* ── Left: text content ── */}
+          <div className="max-w-2xl w-full">
+            {/* Badge */}
+            <div className="reveal-up d1 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] mb-8">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#bef264]" />
+              <span className="text-[11px] text-gray-400 font-mono tracking-wider">
+                hi, I&apos;m tanuj —
+              </span>
+            </div>
+
+            {/* Headline */}
+            <div className="mb-8">
+              <h1 className="reveal-up d2 font-black leading-[1.0] tracking-tight"
+                  style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)" }}>
+                Your Trusted{" "}
+                <span className="kw">Cloud</span>
+              </h1>
+              <h1 className="reveal-up d3 font-black leading-[1.0] tracking-tight"
+                  style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)" }}>
+                &amp;{" "}
+                <TypingWord />
+              </h1>
+              <h1 className="reveal-up d4 font-black leading-[1.0] tracking-tight text-white/80"
+                  style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)" }}>
+                Engineer.
+              </h1>
+            </div>
+
+            {/* Divider */}
+            <div className="draw-line h-px w-full bg-white/[0.08] mb-8" />
+
+            {/* Description + CTAs */}
+            <div className="reveal-up d5">
+              <p className="text-[15px] text-gray-500 leading-relaxed mb-7 max-w-sm">
+                I spend most of my time making infrastructure less of a headache —
+                automating the boring stuff, containerising the rest.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a href="#projects"
+                  className="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#bef264] text-black text-sm font-semibold hover:bg-lime-300 transition-all duration-300 hover:-translate-y-0.5 active:scale-95">
+                  <span>→</span> See my work
+                </a>
+                <a href="#contact"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/[0.1] text-sm text-gray-300 hover:text-white hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-0.5 active:scale-95">
+                  Say hello
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Giant headline with keyword boxes */}
-          <div className="mb-8">
-            <h1 className="reveal-up d2 font-black leading-[1.0] tracking-tight"
-                style={{ fontSize: "clamp(2.8rem, 8vw, 7rem)" }}>
-              Your Trusted{" "}
-              <span className="kw">Cloud</span>
-            </h1>
-            <h1 className="reveal-up d3 font-black leading-[1.0] tracking-tight"
-                style={{ fontSize: "clamp(2.8rem, 8vw, 7rem)" }}>
-              &amp;{" "}
-              <TypingWord />
-            </h1>
-            <h1 className="reveal-up d4 font-black leading-[1.0] tracking-tight text-white/80"
-                style={{ fontSize: "clamp(2.8rem, 8vw, 7rem)" }}>
-              Engineer.
-            </h1>
-          </div>
-
-          {/* Divider */}
-          <div className="draw-line h-px w-full bg-white/[0.08] mb-8" />
-
-          {/* Description + CTAs */}
-          <div className="reveal-up d5 grid sm:grid-cols-2 gap-8 items-end max-w-3xl">
-            <p className="text-[15px] text-gray-500 leading-relaxed">
-              I spend most of my time making infrastructure less of a headache —
-              automating the boring stuff, containerising the rest.
-            </p>
-            <div className="flex flex-wrap gap-3 sm:justify-end">
-              <a href="#projects"
-                className="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#bef264] text-black text-sm font-semibold hover:bg-lime-300 transition-all duration-300 hover:-translate-y-0.5 active:scale-95">
-                <span>→</span> See my work
-              </a>
-              <a href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/[0.1] text-sm text-gray-300 hover:text-white hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-0.5 active:scale-95">
-                Say hello
-              </a>
+          {/* ── Right: Terminal animation ── */}
+          <div className="reveal-up d6 hidden lg:flex items-start justify-end pt-6">
+            <div style={{ width: "300px", height: "460px", flexShrink: 0 }}>
+              <SplineScene />
             </div>
           </div>
         </div>
       </Container>
 
       {/* Marquee strip */}
-      <div className="reveal-up d6 border-t border-b border-white/[0.04] py-3 overflow-hidden marquee-wrap">
+      <div className="reveal-up d7 border-t border-b border-white/[0.04] py-3 overflow-hidden marquee-wrap">
         <div className="marquee-track flex whitespace-nowrap select-none">
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex items-center gap-8 pr-8">
@@ -101,7 +115,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll hint */}
-      <div className="reveal-up d7 flex justify-center py-6">
+      <div className="flex justify-center py-6">
         <div className="flex flex-col items-center gap-2">
           <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-gray-700">scroll</span>
           <div className="w-px h-7 bg-gradient-to-b from-gray-700 to-transparent" />
