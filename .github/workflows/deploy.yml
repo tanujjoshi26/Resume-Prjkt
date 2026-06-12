@@ -14,6 +14,14 @@ jobs:
          cd ~/portfolio-site
          git fetch origin
          git reset --hard origin/main
-         docker compose down
-         docker compose build --pull
-         docker compose up -d
+         docker compose up -d --build
+         
+
+#run: |
+# cd ~/portfolio-site
+# git fetch origin
+# git reset --hard origin/main
+# docker compose down    #Stop old container
+# docker compose build --pull  #Build new image
+# docker compose up -d   #Start new container
+# basically old iteration or version which can be explained more easily to devs or for self understanding  
