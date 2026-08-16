@@ -24,29 +24,30 @@ export default function Skills() {
     <section id="skills" className="py-20 sm:py-28 border-t border-white/[0.05]">
       <Container>
         <ScrollReveal>
-          <div className="flex items-center justify-between mb-14">
-            <h2 className="font-black tracking-tight leading-none"
-                style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)" }}>
-              Technical <span className="kw">Arsenal.</span>
-            </h2>
-            <span className="hidden sm:block text-[11px] font-mono text-gray-700 uppercase tracking-widest">
-              02 —
-            </span>
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <p className="section-label mb-3">Skills</p>
+              <h2 className="text-heading text-white/85">
+                Technical stack
+              </h2>
+            </div>
           </div>
         </ScrollReveal>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {skillCategories.map((group, i) => (
             <ScrollReveal key={group.category} delay={(i % 3) as 0 | 1 | 2 | 3}>
-              <div className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-6 sm:p-7 h-full hover:border-[#bef264]/20 hover:bg-white/[0.03] transition-all duration-300 group">
-                <h3 className="text-[11px] font-mono text-gray-600 uppercase tracking-[0.2em] mb-1">
+              <div className="rounded-2xl border border-white/[0.06] bg-white/[0.015] p-6 h-full hover:border-[#bef264]/15 hover:bg-white/[0.025] transition-all duration-200 group">
+                <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#3a3a3a] group-hover:text-[#525252] transition-colors mb-1">
                   {group.category}
-                </h3>
-                <p className="text-[12px] text-gray-700 italic mb-5">{group.note}</p>
+                </p>
+                <p className="text-[12px] text-[#3a3a3a] italic mb-5">{group.note}</p>
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
-                    <span key={skill}
-                      className="px-3 py-1.5 text-[13px] text-gray-400 border border-white/[0.06] rounded-lg hover:border-[#bef264]/30 hover:text-[#bef264] hover:bg-[#bef264]/[0.05] transition-all duration-300 cursor-default">
+                    <span
+                      key={skill}
+                      className="px-3 py-1.5 text-[12px] text-[#737373] border border-white/[0.06] rounded-lg hover:border-[#bef264]/25 hover:text-[#bef264] hover:bg-[#bef264]/[0.04] transition-all duration-200 cursor-default"
+                    >
                       {skill}
                     </span>
                   ))}

@@ -5,47 +5,53 @@ export default function About() {
   return (
     <section id="about" className="py-20 sm:py-28 border-t border-white/[0.05]">
       <Container>
-        <ScrollReveal>
-          <div className="flex items-center gap-3 mb-14">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-[11px] text-gray-500 font-mono">
-              <span className="text-[#bef264]">↓</span> Why Choose Me
-            </span>
-          </div>
-        </ScrollReveal>
-
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Left */}
+        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-24 items-start">
+          {/* Left — label + headline */}
           <ScrollReveal>
-            <h2 className="font-black leading-[1.05] tracking-tight mb-6"
-                style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
-              My Extensive
-              <br />
-              <span className="kw-lime">List of Skills.</span>
+            <p className="section-label mb-5">About</p>
+            <h2 className="text-heading text-white/85 mb-6">
+              Building things that{" "}
+              <span className="kw-lime">actually run</span>{" "}
+              in production.
             </h2>
-            <p className="text-[15px] text-gray-500 leading-relaxed max-w-sm">
-              I got into cloud engineering because I wanted to understand
-              what happens <em className="text-gray-400 not-italic">after</em> you push code.
-              Turns out — a lot. And most of it can be automated.
-            </p>
+            <div className="flex flex-wrap gap-2 mt-8">
+              {["Ahmedabad, India", "Cloud Engineer", "Self-hoster"].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[11px] font-mono px-3 py-1 rounded-full border border-white/[0.07] text-[#525252]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </ScrollReveal>
 
-          {/* Right */}
+          {/* Right — bio paragraphs */}
           <ScrollReveal delay={1}>
-            <div className="space-y-5 text-[15px] text-gray-500 leading-[1.85]">
+            <div className="space-y-5 text-[15px] text-[#737373] leading-[1.85]">
               <p>
-                I focus on building production-grade infrastructure while deep diving
-                into cloud-native technologies, containerization, CI/CD, and
-                scalable architectures.
+                I got into cloud engineering because I wanted to understand
+                what happens <em className="text-[#a3a3a3] not-italic">after</em> you
+                push code. Turns out — a lot. And most of it can be automated.
               </p>
               <p>
-                My approach is automation-first — leveraging Terraform, Docker, and
-                GitHub Actions to create reliable, repeatable systems.
+                My focus is production-grade infrastructure: Terraform for
+                provisioning, Docker and Kubernetes for workloads, GitHub Actions
+                for CI/CD. I care about making deployments boring — repeatable,
+                observable, and easy to roll back.
               </p>
-              <div className="pt-3 pl-4 border-l-2 border-[#bef264]/30">
-                <p className="text-[12px] font-mono text-gray-700 uppercase tracking-wider mb-1">Currently</p>
-                <p className="text-[14px] text-gray-600">
-                  Exploring cloud-native observability and distributed systems design.
-                </p>
+              <p>
+                Outside of work I run a homelab on a Raspberry Pi with a Tailscale
+                mesh, self-host my own services, and occasionally write about what
+                I&apos;m tinkering with.
+              </p>
+              <div className="pt-2">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 text-[13px] text-[#bef264] hover:text-white transition-colors duration-200 font-mono"
+                >
+                  → Get in touch
+                </a>
               </div>
             </div>
           </ScrollReveal>
