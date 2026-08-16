@@ -14,7 +14,7 @@ jobs:
          cd ~/portfolio-site
          git fetch origin
          git reset --hard origin/main
-         docker compose down
+         docker compose stop portfolio
          docker compose up -d --build
          
 
