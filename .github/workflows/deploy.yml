@@ -9,19 +9,20 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Go to project
-        run: |
-         rsync -a --delete $GITHUB_WORKSPACE/ ~/portfolio-site/
-         cd ~/portfolio-site
-         docker compose stop portfolio
-         docker compose up -d --build
-         
 
-#run: |
-# cd ~/portfolio-site
-# git fetch origin
-# git reset --hard origin/main
-# docker compose down    #Stop old container
-# docker compose build --pull  #Build new image
-# docker compose up -d   #Start new container
-# basically old iteration or version which can be explained more easily to devs or for self understanding  
+      - name: Deploy
+        run: |
+          # Sync fresh code to portfolio-site
+          rsync -a --delete $GITHUB_WORKSPACE/ ~/portfolio-site/
+
+          cd ~/portfolio-site
+
+          # Force stop and remove the portfolio container if it exists
+          docker stop portfolio 2>/dev/null || true
+          docker rm portfolio 2>/dev/null || true
+
+          # Kill anything else still holding port 3000
+          fuser -k 3000/tcp 2>/dev/null || true
+
+          # Build and start
+          docker compose up -d --build
