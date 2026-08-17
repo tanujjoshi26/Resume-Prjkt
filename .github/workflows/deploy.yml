@@ -12,8 +12,8 @@ jobs:
 
       - name: Deploy
         run: |
-          # Sync fresh code to portfolio-site
-          rsync -a --delete $GITHUB_WORKSPACE/ ~/portfolio-site/
+          # Sync fresh code to portfolio-site (preserve .env on the Pi)
+          rsync -a --delete --exclude='.env' $GITHUB_WORKSPACE/ ~/portfolio-site/
 
           cd ~/portfolio-site
 
