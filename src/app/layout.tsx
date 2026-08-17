@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   },
 };
 
+// Replace UMAMI_WEBSITE_ID below with the ID from your Umami dashboard after first login
+const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ?? "";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,6 +30,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={`${GeistSans.className} antialiased`} suppressHydrationWarning>
+        {UMAMI_WEBSITE_ID && (
+          <script
+            defer
+            src="http://raspberrypi.tail3bbc0.ts.net:3001/script.js"
+            data-website-id={UMAMI_WEBSITE_ID}
+          />
+        )}
         {children}
       </body>
     </html>
