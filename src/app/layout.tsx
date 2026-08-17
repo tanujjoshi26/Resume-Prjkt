@@ -33,7 +33,7 @@ export default function RootLayout({
         {UMAMI_WEBSITE_ID && (
           <script
             defer
-            src="//raspberrypi.tail3bbc0.ts.net:3001/script.js"
+            src="/umami/script.js"
             data-website-id={UMAMI_WEBSITE_ID}
           />
         )}
