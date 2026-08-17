@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 // Replace UMAMI_WEBSITE_ID below with the ID from your Umami dashboard after first login
-const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ?? "";
+const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ?? "0d60e32a-3c25-4308-937c-89e2c1e29003";
 
 export default function RootLayout({
   children,
