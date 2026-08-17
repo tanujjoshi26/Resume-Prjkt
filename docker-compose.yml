@@ -19,6 +19,9 @@ services:
       DATABASE_URL: postgresql://umami:umami_pass_123@umami-db:5432/umami
       DATABASE_TYPE: postgresql
       APP_SECRET: replace_with_a_long_random_secret_string
+      GEOLITE2_CITY_DB: /geoip/dbip-city-lite.mmdb
+    volumes:
+      - ~/geoip:/geoip:ro
     depends_on:
       umami-db:
         condition: service_healthy

@@ -17,12 +17,22 @@ jobs:
 
           cd ~/portfolio-site
 
+          # Download latest DB-IP city lite GeoIP database (free, no signup needed)
+          # Released monthly — pulls current month automatically
+          mkdir -p ~/geoip
+          DBIP_URL="https://download.db-ip.com/free/dbip-city-lite-$(date +%Y-%m).mmdb.gz"
+          curl -sL "$DBIP_URL" | gunzip -c > ~/geoip/dbip-city-lite.mmdb
+          echo "GeoIP database updated"
+
           # Force stop and remove the portfolio container if it exists
           docker stop portfolio 2>/dev/null || true
           docker rm portfolio 2>/dev/null || true
 
           # Kill anything else still holding port 3000
           fuser -k 3000/tcp 2>/dev/null || true
+
+          # Restart umami to pick up fresh GeoIP db
+          docker restart umami 2>/dev/null || true
 
           # Build and start
           docker compose up -d --build
