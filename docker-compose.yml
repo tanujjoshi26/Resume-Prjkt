@@ -21,7 +21,7 @@ services:
       APP_SECRET: replace_with_a_long_random_secret_string
       GEOLITE2_CITY_DB: /geoip/dbip-city-lite.mmdb
     volumes:
-      - ~/geoip:/geoip:ro
+      - /home/tj/geoip:/geoip:ro
     depends_on:
       umami-db:
         condition: service_healthy
