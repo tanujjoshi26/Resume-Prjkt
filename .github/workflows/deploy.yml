@@ -17,30 +17,12 @@ jobs:
 
           cd ~/portfolio-site
 
-          # Download latest DB-IP city lite GeoIP database (free, no signup needed)
-          # Released monthly — pulls current month automatically
-          mkdir -p ~/geoip
-          YEAR_MONTH=$(date +%Y-%m)
-          DBIP_URL="https://download.db-ip.com/free/dbip-city-lite-${YEAR_MONTH}.mmdb.gz"
-          curl -sL "$DBIP_URL" | gunzip -c > ~/geoip/dbip-city-lite.mmdb
-          # Verify file downloaded correctly (should be > 10MB)
-          FILE_SIZE=$(stat -c%s ~/geoip/dbip-city-lite.mmdb 2>/dev/null || echo 0)
-          if [ "$FILE_SIZE" -lt 10000000 ]; then
-            echo "Warning: GeoIP file seems too small ($FILE_SIZE bytes), trying previous month"
-            PREV_MONTH=$(date -d "$(date +%Y-%m-01) -1 month" +%Y-%m 2>/dev/null || date -v-1m +%Y-%m)
-            curl -sL "https://download.db-ip.com/free/dbip-city-lite-${PREV_MONTH}.mmdb.gz" | gunzip -c > ~/geoip/dbip-city-lite.mmdb
-          fi
-          echo "GeoIP database size: $(stat -c%s ~/geoip/dbip-city-lite.mmdb) bytes"
-
           # Force stop and remove the portfolio container if it exists
           docker stop portfolio 2>/dev/null || true
           docker rm portfolio 2>/dev/null || true
 
           # Kill anything else still holding port 3000
           fuser -k 3000/tcp 2>/dev/null || true
-
-          # Restart umami to pick up fresh GeoIP db
-          docker restart umami 2>/dev/null || true
 
           # Build and start
           docker compose up -d --build
