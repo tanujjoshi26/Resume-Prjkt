@@ -35,7 +35,6 @@ const contactLinks = [
       </svg>
     ),
   },
-  {
 ];
 
 export default function Contact() {
